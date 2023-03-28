@@ -104,7 +104,6 @@ public class Wunsch {
         System.out.println("score: " + calculateScore(hiza1, hiza2));
     }
 
-
     static int calculateScore(String hiza1, String hiza2) {
         int score = 0;
         for (int i = 0; i < hiza1.length(); i++) {
