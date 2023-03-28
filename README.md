@@ -1,2 +1,8 @@
-![](https://imgur.com/uNlTLLQ.png)
-![](https://imgur.com/a/z3VYvOx.png)
+
+<h1>Proje</h1>
+
+![](images/image.png)
+
+<h1>Çıktı</h1>
+
+![](images/out.png)
