@@ -6,6 +6,8 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
+        //çalışma süresi için startTime tuttuk
+        long startTime = System.nanoTime();
 
         // try-catch bloğu ile dosyaları okuma
         try {
@@ -37,6 +39,12 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        // çalışma süresi için endTime tuttuk ve yazdırdık
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+
+        System.out.println("çalışma süresi: " + duration + " nanoseconds");
 
     }
 }
