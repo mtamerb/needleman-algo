@@ -1,7 +1,7 @@
 <h1>Proje</h1>
 
-![](images/image.png)
+![](resources/images/image.png)
 
 <h1>Çıktı</h1>
 
-![](images/out.png)
+![](resources/images/out.png)

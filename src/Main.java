@@ -18,10 +18,11 @@ public class Main {
         // try-catch bloğu ile dosyaları okuma
         try {
             // home klasoru
-            File homedir = new File(System.getProperty("user.home"));
+
+
 
             // ilk dosyayı okuma
-            File filePath1 = new File(homedir, "Documents/TEST.txt");
+            File filePath1 = new File("./resources/files/TEST1.txt");
             FileReader fileReader = new FileReader(filePath1);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
@@ -29,7 +30,7 @@ public class Main {
             String sequence1 = bufferedReader.readLine();
 
             // ikinci dosyayı okuma
-            File filePath2 = new File(homedir, "Documents/TEST2.txt");
+            File filePath2 = new File("./resources/files/TEST2.txt");
             FileReader fileReader2 = new FileReader(filePath2);
             BufferedReader bufferedReader2 = new BufferedReader(fileReader2);
 
