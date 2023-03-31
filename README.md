@@ -4,7 +4,7 @@
 
 <h1>Çıktı</h1>
 
-![](resources/images/out.png)
+![](resources/images/output.png)
 
 
 <h1>Kullanım</h1>
