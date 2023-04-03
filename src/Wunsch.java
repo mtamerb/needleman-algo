@@ -50,13 +50,13 @@ public class Wunsch {
     }
 
     // traceback fonkisyonumuz --> en iyi eşleşmeyi bulmak için
+
     static void traceBackAlignment(String rowSequence, String columnSequence, int len1, int len2) {
-        String hiza1 = "";
-        String hiza2 = "";
-        int rowLength = len1;
-        int columnLength = len2;
-        int i = rowLength;
-        int j = columnLength;
+        StringBuilder hiza1Builder = new StringBuilder();
+        StringBuilder hiza2Builder = new StringBuilder();
+
+        int i = len1;
+        int j = len2;
 
         while (i > 0 && j > 0) {
             int score = matrix[i][j];
@@ -64,44 +64,40 @@ public class Wunsch {
             int scoreUp = matrix[i - 1][j];
 
             if (score == scoreDiag + (rowSequence.charAt(i - 1) == columnSequence.charAt(j - 1) ? match : mismatch)) {
-                hiza1 += (rowSequence.charAt(i - 1));
-                hiza2 += (columnSequence.charAt(j - 1));
+                hiza1Builder.append(rowSequence.charAt(i - 1));
+                hiza2Builder.append(columnSequence.charAt(j - 1));
                 i--;
                 j--;
             } else if (score == scoreUp + gap) {
-                hiza1 += (rowSequence.charAt(i - 1));
-                hiza2 += ("-");
+                hiza1Builder.append(rowSequence.charAt(i - 1));
+                hiza2Builder.append("-");
                 i--;
             } else {
-                hiza1 += ("-");
-                hiza2 += (columnSequence.charAt(j - 1));
+                hiza1Builder.append("-");
+                hiza2Builder.append(columnSequence.charAt(j - 1));
                 j--;
             }
         }
 
         while (i > 0) {
-            hiza1 += (rowSequence.charAt(i - 1));
-            hiza2 += ("-");
+            hiza1Builder.append(rowSequence.charAt(i - 1));
+            hiza2Builder.append("-");
             i--;
         }
 
         while (j > 0) {
-            hiza1 += ("-");
-            hiza2 += (columnSequence.charAt(j - 1));
+            hiza1Builder.append("-");
+            hiza2Builder.append(columnSequence.charAt(j - 1));
             j--;
         }
 
-        hiza1 = reverseAlignment(hiza1);
-        hiza2 = reverseAlignment(hiza2);
+        String hiza1 = hiza1Builder.reverse().toString();
+        String hiza2 = hiza2Builder.reverse().toString();
 
-
-        System.out.println("\nOptimal Hizalama : ");
-
-        System.out.println("optimal hizalama sonrası --> " + hiza1 + " && " +hiza2);
-
-
+        System.out.println("hiza1: " + hiza1 + "\nhiza2: " + hiza2);
 
         System.out.println("score: " + calculateScore(hiza1, hiza2));
+
     }
 
     static int calculateScore(String hiza1, String hiza2) {
@@ -117,6 +113,7 @@ public class Wunsch {
         }
         return score;
     }
+
 
     static String reverseAlignment(String str) {
         String reverse = "";
