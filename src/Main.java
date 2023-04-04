@@ -17,9 +17,6 @@ public class Main {
     private static void fileIO() {
         // try-catch bloğu ile dosyaları okuma
         try {
-            // home klasoru
-
-
 
             // ilk dosyayı okuma
             File filePath1 = new File("./resources/files/TEST1.txt");

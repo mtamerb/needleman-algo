@@ -1,4 +1,4 @@
-import java.io.*;
+
 import java.util.Arrays;
 
 public class Wunsch {
@@ -23,22 +23,12 @@ public class Wunsch {
         matrix = new int[rowLen + 1][colLen + 1];
 
 
-        // 0 0 sıfır matrisini 0 olarak belirledik
-        matrix[0][0] = 0;
-
-
-        // satır değerlerini gap ifadesi kadar artanlı şekilde doldurduk
-        for (int i = 1; i < rowLen + 1; i++) {
-            matrix[i][0] = matrix[i - 1][0] + gap;
-        }
-        //  sütun değerlerini gap ifadesi kadar artanlı doldurduk
-        for (int i = 1; i < colLen + 1; i++) {
-            matrix[0][i] = matrix[0][i - 1] + gap;
-        }
-
         // iç matris değerlerimizi algortimazmıdaki 3 farklı fonksiyona göre max değerleriyle doldurduk
         for (int i = 1; i < rowLen + 1; i++) {
             for (int j = 1; j < colLen + 1; j++) {
+                matrix[0][0] = 0;
+                matrix[i][0] = matrix[i - 1][0] + gap;
+                matrix[0][j] = matrix[0][j - 1] + gap;
                 if (rowSequence.charAt(i - 1) == columnSequence.charAt(j - 1)) {
                     matchValue = match;
                 } else {
@@ -114,14 +104,6 @@ public class Wunsch {
         return score;
     }
 
-
-    static String reverseAlignment(String str) {
-        String reverse = "";
-        for (int i = str.length() - 1; i >= 0; i--) {
-            reverse = reverse + str.charAt(i);
-        }
-        return reverse;
-    }
 
 
     static void yazdir() {
