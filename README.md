@@ -1,5 +1,9 @@
 <h1>Proje</h1>
 
+
+!!! GÖRSEL ARAYÜZ İÇİN -->   https://github.com/mtamerb/needleman-wunsch-app-gui
+
+
 ![](resources/images/image.png)
 
 <h1>Çıktı</h1>
