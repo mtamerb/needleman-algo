@@ -16,33 +16,35 @@ public class Main {
 
     }
 
+    static int len1;
+    static String sequence1;
+    static int len2;
+    static String sequence2;
+
     private static void fileIO() {
         // try-catch bloğu ile dosyaları okuma
-        try {
+        // ilk dosyayı okuma
+        File filePath1 = new File("./resources/files/TEST1.txt");
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath1));) {
 
-            // ilk dosyayı okuma
-            File filePath1 = new File("./resources/files/TEST1.txt");
-            FileReader fileReader = new FileReader(filePath1);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-            int len1 = Integer.parseInt(bufferedReader.readLine());
-            String sequence1 = bufferedReader.readLine();
-
+            len1 = Integer.parseInt(bufferedReader.readLine());
+            sequence1 = bufferedReader.readLine();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // ikinci dosya okuma
+        File filePath2 = new File("./resources/files/TEST2.txt");
+        try (BufferedReader bufferedReader2 = new BufferedReader(new FileReader(filePath2))) {
             // ikinci dosyayı okuma
-            File filePath2 = new File("./resources/files/TEST2.txt");
-            FileReader fileReader2 = new FileReader(filePath2);
-            BufferedReader bufferedReader2 = new BufferedReader(fileReader2);
-
-            int len2 = Integer.parseInt(bufferedReader2.readLine());
-            String sequence2 = bufferedReader2.readLine();
-
-            // com.tamerb.needleman.Wunsch sınıfından nesne oluşturma
-            Wunsch.doldur(sequence1, sequence2, len1, len2);
-            Wunsch.yazdir();
-            Wunsch.traceBackAlignment(sequence1, sequence2, len1, len2);
+            len2 = Integer.parseInt(bufferedReader2.readLine());
+            sequence2 = bufferedReader2.readLine();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+        // com.tamerb.needleman.Wunsch sınıfından nesne oluşturma
+        Wunsch.doldur(sequence1, sequence2, len1, len2);
+        Wunsch.yazdir();
+        Wunsch.traceBackAlignment(sequence1, sequence2, len1, len2);
     }
 }
