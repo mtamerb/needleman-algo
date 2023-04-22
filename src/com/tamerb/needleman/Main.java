@@ -25,7 +25,7 @@ public class Main {
         // try-catch bloğu ile dosyaları okuma
         // ilk dosyayı okuma
         File filePath1 = new File("./resources/files/TEST1.txt");
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath1));) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath1))) {
 
             len1 = Integer.parseInt(bufferedReader.readLine());
             sequence1 = bufferedReader.readLine();
