@@ -1,3 +1,5 @@
+package com.tamerb.needleman;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -34,7 +36,7 @@ public class Main {
             int len2 = Integer.parseInt(bufferedReader2.readLine());
             String sequence2 = bufferedReader2.readLine();
 
-            // Wunsch sınıfından nesne oluşturma
+            // com.tamerb.needleman.Wunsch sınıfından nesne oluşturma
             Wunsch.doldur(sequence1, sequence2, len1, len2);
             Wunsch.yazdir();
             Wunsch.traceBackAlignment(sequence1, sequence2, len1, len2);

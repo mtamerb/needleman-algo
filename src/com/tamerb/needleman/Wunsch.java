@@ -1,3 +1,4 @@
+package com.tamerb.needleman;
 
 import java.util.Arrays;
 
@@ -103,7 +104,6 @@ public class Wunsch {
         }
         return score;
     }
-
 
 
     static void yazdir() {
